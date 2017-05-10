@@ -449,7 +449,7 @@ module.exports = function astExec(options) {
 
 这样我们在用的时候就可以像下面这样使用：
 在`.babelrc`文件中像下面这样配置即可：
-```json
+```js
 {
   "presets": [...], // babel-preset-react等
   "plugins" :[
