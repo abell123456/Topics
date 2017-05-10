@@ -302,7 +302,7 @@ Traverse(ast, {
 console.log(generator(ast).code);
 ```
 
-其实跟往Class中插入method一样的道理。
+其实跟往Class中插入method一样的道理。
 
 ## 4、Babel插件开发介绍
 
