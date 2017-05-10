@@ -6,25 +6,25 @@
 
 大概分为以下几块：
 
-0、Babel基础介绍
-1、使用npm上好用的Babel插件提升开发效率
-2、使用Babel做代码转换使用到的模块及执行流程
-3、示例：类中插入方法、类方法中插入代码
-4、Babel插件开发介绍
-5、示例：通过Babel实现打包构建优化 -- 组件模块按需打包
+0、Babel基础介绍  
+1、使用npm上好用的Babel插件提升开发效率  
+2、使用Babel做代码转换使用到的模块及执行流程  
+3、示例：类中插入方法、类方法中插入代码  
+4、Babel插件开发介绍  
+5、示例：通过Babel实现打包构建优化 -- 组件模块按需打包  
 
 
 ## 0.Babel基础介绍
 
-用到的名词：
-- AST：Abstract Syntax Tree, 抽象语法树
-- DI: Dependency Injection, 依赖注入
+用到的名词：  
+- AST：Abstract Syntax Tree, 抽象语法树  
+- DI: Dependency Injection, 依赖注入  
 
 我们在实际的开发过程中，经常有需要修改js源代码的需求，比如一下几种情形：
-- ES6/7转化为浏览器可支持的ES5甚至ES3代码；
-- JSX代码转化为js代码（原来是Facebook团队支持在浏览器中执行转换，现在转到在babel插件中维护）；
-- 部分js新的特性动态注入（用的比较多的就是babel-plugin-transform-runtime）；
-- 一些便利性特性支持，比如：React If/Else/For/Switch等标签支持；
+- ES6/7转化为浏览器可支持的ES5甚至ES3代码；  
+- JSX代码转化为js代码（原来是Facebook团队支持在浏览器中执行转换，现在转到在babel插件中维护）；  
+- 部分js新的特性动态注入（用的比较多的就是babel-plugin-transform-runtime）；  
+- 一些便利性特性支持，比如：React If/Else/For/Switch等标签支持；  
 
 于是，我们就需要一款支持动态修改js源代码的模块，babel则是用的最多的一个。
 
@@ -77,10 +77,11 @@ class MyComponent extends React.Component {
 
     // 其他代码
 }
-```
-我们会需要根据当前的DSL生成对应的render方法并插入进`MyComponent`组件类中，该如何实现呢？
+```  
 
-上面已经讲到，我们对代码的操作其实是通过`对代码生成的AST操作生成一个新的AST`来完成的，而对AST的操作则是通过`babel-traverse`这个库来实现的。
+我们会需要根据当前的DSL生成对应的render方法并插入进`MyComponent`组件类中，该如何实现呢？  
+
+上面已经讲到，我们对代码的操作其实是通过`对代码生成的AST操作生成一个新的AST`来完成的，而对AST的操作则是通过`babel-traverse`这个库来实现的。  
 
 该库通过简单的hooks函数的方式，给我们提供了在遍历AST时可以操作当前被遍历到的节点的相关操作，要获取并修改（增删改查）当前节点，我们需要知道AST都有哪些节点类型，而所有的节点类型都存放于`babel-types`这个库中。我们先看完整的实现代码，然后再分析：
 
