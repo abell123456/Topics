@@ -1,8 +1,6 @@
-# vane
+# vanex
 
-基于`mobx & mobx-react`的React store管理框架，提供简单快捷开发方式。  
-
-项目地址：[Vane](https://github.com/abell123456/vane)。
+基于`mobx & mobx-react`的React store管理框架，提供简单快捷开发方式。
 
 ## 特点
 
@@ -10,7 +8,7 @@
 
 ## 如何使用
 
-> vane提供了一键初始化的`start`方法，入口文件可以像下面这样开始：
+> vanex提供了一键初始化的`start`方法，入口文件可以像下面这样开始：
 
 ```js
 import React from 'react';
@@ -18,7 +16,7 @@ import App from './App';
 
 import {
     start,
-} from 'vane';
+} from 'vanex';
 
 // model
 import user from './models/User';
@@ -44,7 +42,7 @@ start({
 
 - `relation`：用于不同model之间的通信，基于监听订阅模式。
 
-> 基于vane的开发范式的`container Component`也是UI Component，UI Component像下面这样：
+> 基于vanex的开发范式的`container Component`也是UI Component，UI Component像下面这样：
 
 ```js
 import React, {Component, PropTypes} from 'react';
@@ -60,7 +58,7 @@ import Todos from './components/Todos';
 import {
     inject,
     observer,
-} from 'vane';
+} from 'vanex';
 
 // 注意先observer，后inject
 @inject('user')
@@ -96,7 +94,7 @@ import App from './App';
 
 import {
     start,
-} from 'vane';
+} from 'vanex';
 
 // model
 import user from './models/User';
@@ -116,7 +114,7 @@ start({
 import {
     inject,
     observer,
-} from 'vane';
+} from 'vanex';
 
 @inject(
     stores => ({
@@ -265,7 +263,7 @@ this.props.home.list[2].name = 'New Name';
 
 如下，简单直接：
 ```js
-import { inject, observer } from 'vane';
+import { inject, observer } from 'vanex';
 
 @inject('applications')
 @observer
@@ -288,7 +286,7 @@ class Applications extends Component {
 
 ## 开发组件
 
-有时候，我们并不想执行页面渲染，而是用Vane来开发一个组件，这时，还是可以使用`start` API，只要不传如`container`值，就会返回一个React Component。
+有时候，我们并不想执行页面渲染，而是用Vanex来开发一个组件，这时，还是可以使用`start` API，只要不传如`container`值，就会返回一个React Component。
 
 ```js
 import React from 'react';
@@ -300,7 +298,7 @@ import middlewares from './middlewares';
 
 import {
     start,
-} from 'vane';
+} from 'vanex';
 
 // model
 import user from './models/User';
@@ -328,12 +326,12 @@ render(<MyComponent data={{a: 1}} />, document.querySelector('#root'));
 ## 特点
 
 - 简单易上手，开发效率高；
-- MVVM：Vane实现了基于React的MVVM开发范式，简单直接，开发效率高；
+- MVVM：Vanex实现了基于React的MVVM开发范式，简单直接，开发效率高；
 - 更改store数据：直接赋值；
 - 触发action：直接执行store的action；
 - 性能优化：自动做掉。
 
-具体例子参考[example](https://github.com/abell123456/vane/tree/master/example).
+具体例子参考[example](https://github.com/abell123456/vanex/tree/master/example).
 
 ## 为什么基于mobx的开发范式更简单高效？
 
@@ -344,4 +342,4 @@ Redux是建议全局唯一Store的，多个Reducers也会在传递给react-redux
 
 ## 感谢
 
-Vane的部分实现参考自MVVM框架：[mobx-roof](https://github.com/mobx-roof/mobx-roof)。
+Vanex的部分实现参考自MVVM框架：[mobx-roof](https://github.com/mobx-roof/mobx-roof)。
