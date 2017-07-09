@@ -1,6 +1,8 @@
 # vane
 
-基于`mobx & mobx-react`的React store管理框架，提供简单快捷开发方式。
+基于`mobx & mobx-react`的React store管理框架，提供简单快捷开发方式。  
+
+项目地址：[Vane](https://github.com/abell123456/vane)。
 
 ## 特点
 
