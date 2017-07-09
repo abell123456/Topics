@@ -1,6 +1,8 @@
 # vanex
 
-基于`mobx & mobx-react`的React store管理框架，提供简单快捷开发方式。
+基于`mobx & mobx-react`的React store管理框架，提供简单快捷的开发范式。使用模式类似dva，但用起来比dva更简单，开发效率更高！  
+
+github地址：https://github.com/abell123456/vanex 
 
 ## 特点
 
